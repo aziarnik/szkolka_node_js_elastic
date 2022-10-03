@@ -1,0 +1,6 @@
+{
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "transformIgnorePatterns": ["dist"],
+    "testMatch": ["**/__tests__/**/*.tests.ts","**/__tests__/**/*.test.ts"]
+}
