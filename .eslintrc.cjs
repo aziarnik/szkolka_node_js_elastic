@@ -13,7 +13,7 @@ module.exports = {
   ],
   parserOptions: {
     ecmaVersion: 'latest',
-    project: ["tsconfig.json"]
+    project: ["tsconfig.json", "tsconfig.eslint.json"]
   },
   rules: {
     "prettier/prettier": 2

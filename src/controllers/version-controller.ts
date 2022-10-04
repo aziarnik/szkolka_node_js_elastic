@@ -7,11 +7,11 @@ export const GetBasicProjectInfo = async (
   res: Response<ProjectBasicInfo>
 ) => {
   const lastCommitHashCode = await execAsync('git rev-parse HEAD');
-  const projectVersion = process.env.npm_package_version;
+  const projectVersion = process.env.npm_package_version ?? 'none';
 
   res.send({
     LastCommitHashCode: lastCommitHashCode,
-    ProjectVersion: projectVersion as string
+    ProjectVersion: projectVersion
   });
 };
 
