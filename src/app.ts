@@ -1,6 +1,6 @@
 import bodyParser from 'body-parser';
 import express from 'express';
-import { versionRoute } from './routers/version-route.js';
+import { versionRoute } from './routers/version-route';
 
 const app = express();
 

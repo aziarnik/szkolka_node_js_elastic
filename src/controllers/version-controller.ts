@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { ProjectBasicInfo } from '../contracts/project-basic-info.js';
+import { ProjectBasicInfo } from '../contracts/project-basic-info';
 import { exec } from 'child_process';
 
 export const GetBasicProjectInfo = async (
