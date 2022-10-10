@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { ProjectBasicInfo } from '../contracts/project-basic-info';
-import { exec } from 'child_process';
+import { execAsync } from '../helpers/git-helper';
 
 export const GetBasicProjectInfo = async (
   req: Request,
@@ -14,21 +14,3 @@ export const GetBasicProjectInfo = async (
     ProjectVersion: projectVersion
   });
 };
-
-function execAsync(command: string): Promise<string> {
-  return new Promise(function (resolve, reject) {
-    exec(command, (error, stdout, stderr) => {
-      if (error) {
-        reject(error);
-        return;
-      }
-
-      if (stderr) {
-        reject(stderr);
-        return;
-      }
-
-      resolve(stdout.trim());
-    });
-  });
-}
