@@ -1,0 +1,8 @@
+{
+    "port": 0,
+    "elasticsearch": {
+        "url": "-",
+        "user": "-",
+        "password": "-"
+    }
+}

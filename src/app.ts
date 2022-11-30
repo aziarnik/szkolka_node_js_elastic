@@ -1,14 +1,24 @@
 import bodyParser from 'body-parser';
 import express from 'express';
-import { versionRoute } from './routers/version-route';
-import config from 'config';
+import { ElasticSearchClient } from './connectors/elasticsearch-client';
+import { ElasticSearchInitialActionService } from './services/elasticsearch-initial-action-service';
+import { SyncDataScheduler } from './scheduler/sync-data-scheduler';
+import { Configuration } from './configuration';
 
 const app = express();
-const port = config.get('port');
-app.use(versionRoute);
+const port = Configuration.PORT;
 
 app.use(bodyParser.json());
 
-app.listen(port, () => {
+app.listen(port, async () => {
   console.log(`Program is running on port: ${port}`);
+  try {
+    const elasticSearchService = new ElasticSearchInitialActionService(
+      ElasticSearchClient.getClient()
+    );
+    await elasticSearchService.createIndexAndMigrateDataIfNeeded();
+    SyncDataScheduler.scheduleSyncDataProcess();
+  } catch (err) {
+    console.log(err);
+  }
 });
