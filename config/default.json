@@ -1,3 +1,9 @@
 {
-    "port": 4000
+    "port": 3001,
+    "elasticSearch": {
+        "url": "http://elasticsearch:9200",
+        "user": "elastic",
+        "password": "cbPDZBGO6T7rSABxPoGLNTos"
+    },
+    "apiUrl": "http://localhost:4000"
 }

@@ -1,0 +1,9 @@
+{
+    "port": "PORT",
+    "elasticSearch": {
+        "url": "ELASTICSEARCH_URL",
+        "user": "ELASTICSEARCH_USER",
+        "password": "ELASTICSEARCH_PASSWORD"
+    },
+    "apiUrl": "API_URL"
+}
